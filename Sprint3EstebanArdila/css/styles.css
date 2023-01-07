@@ -1345,9 +1345,12 @@ footer .footerInfo p span {
 
 /* Para dispositivos largos hacia arriba */
 
-@media (max-width: 1650px) {
+@media (min-width: 1750px) {
   .Sec__CardHouses {
-    width: 60%;
+    width: 40%;
+  }
+  .Sec_propertiesbyArea {
+    width: 50%;
   }
 }
 
