@@ -222,25 +222,25 @@ btnFindhouses.addEventListener("click", () => {
 //funcionalidad del carrusel de los agentes
 SecRadioButtons.addEventListener("click", (e) => {
   let agentesummary;
-  console.log(agents);
-  console.log(e.path[0].id);
-  AgentsSec.classList.remove("animate__fadeIn");
-  switch (e.path[0].id) {
-    case "radio1":
-      agentesummary = agents.slice(0, 3);
-      renderAgents(agentesummary);
-      AgentsSec.classList.add("animate__fadeIn");
-      break;
-    case "radio2":
-      agentesummary = agents.slice(3, 6);
-      renderAgents(agentesummary);
-      AgentsSec.classList.add("animate__fadeIn");
-      break;
-    case "radio3":
-      agentesummary = agents.slice(6, 9);
-      renderAgents(agentesummary);
-      AgentsSec.classList.add("animate__fadeIn");
-      break;
+  if (e.target.localName == "input") {
+    AgentsSec.classList.remove("animate__fadeIn");
+    switch (e.target.id) {
+      case "radio1":
+        agentesummary = agents.slice(0, 3);
+        renderAgents(agentesummary);
+        AgentsSec.classList.add("animate__fadeIn");
+        break;
+      case "radio2":
+        agentesummary = agents.slice(3, 6);
+        renderAgents(agentesummary);
+        AgentsSec.classList.add("animate__fadeIn");
+        break;
+      case "radio3":
+        agentesummary = agents.slice(6, 9);
+        renderAgents(agentesummary);
+        AgentsSec.classList.add("animate__fadeIn");
+        break;
+    }
   }
 });
 
