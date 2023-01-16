@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Animate.css  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <!-- Link para toastify -->
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+    <!-- estilos propios  -->
+    <link rel="stylesheet" href="css/styles.css" />
+    <title>Store</title>
+  </head>
+  <body>
+    <!-- Comienza seccion del modal  -->
+    <section class="SecModal animate__animated" id="SecModal">
+      <article class="CardModal radiusModal animate__animated" id="CardModal">
+        <!-- CardLocacion -->
+        <div class="CardLocation">
+          <div class="CloseIconLocation">
+            <figure id="btncloseModal">
+              <img src="img/closeIcon.svg" alt="" />
+            </figure>
+          </div>
+          <div class="inputsLocation">
+            <h2>¿Dónde quieres recibir tu pedido?</h2>
+            <p>
+              Para poder ofrecerte productos dentro de tu área, necesitamos tu
+              dirección
+            </p>
+            <label>
+              <img src="img/locationicon.svg" alt="" />
+              <input
+                list="listLocationUser"
+                placeholder="Ingresa la ciudad"
+                id="text_datalist"
+              />
+              <label id="lblErrorModalLocation" class="animate__animated"
+                >No dejes este campo vacío</label
+              >
+              <datalist id="listLocationUser"></datalist>
+            </label>
+            <button id="btnBuscar">Buscar</button>
+          </div>
+        </div>
+
+        <!-- CardInfoProduct -->
+        <div class="CardProduct">
+          <div class="CloseIconLocation">
+            <figure id="btncloseModalProduct">
+              <img src="img/closeIcon.svg" alt="" />
+            </figure>
+          </div>
+          <section class="Sec_info_product">
+            <article class="InfoProduct">
+              <div class="SecImgInfoProduct">
+                <img src="img/lemon.png" alt="" id="imgProductModal" />
+              </div>
+              <div class="Infoproduct_input">
+                <div class="Infoproduct_input_text">
+                  <h2 id="nomProductModal">Aguacate Hass</h2>
+                  <h3 id="priceProductModal">69.9</h3>
+                  <p>precios con IVA incluido</p>
+                  <h4>
+                    Peso aproximado por pieza, puede variar de acuerdo al peso
+                    real
+                  </h4>
+                </div>
+                <div class="Infoproduct_input_sec1">
+                  <h4>Selecciona la madurez que deseas</h4>
+                  <select name="" id="">
+                    <option value="0">Por elegir</option>
+                    <option value="1">Maduro (Para hoy)</option>
+                    <option value="1">Normal (3-5 días)</option>
+                    <option value="1">Verde (7 días)</option>
+                  </select>
+                </div>
+                <div class="Infoproduct_input_sec2">
+                  <div class="inputsAdicion">
+                    <button id="btnMenosProductModal">-</button>
+                    <p id="cantidadProductModal">250g</p>
+                    <button id="btnMasProductModal">+</button>
+                  </div>
+                  <button class="btnAgregarCardproduct">
+                    Añadir al carrito
+                  </button>
+                </div>
+                <label id="lblerrorModalProduct" class="animate__animated"
+                  >Selecciona una cantidad por favor</label
+                >
+              </div>
+            </article>
+            <!-- comienza el slider  -->
+            <article class="Sec_SliderProductRel">
+              <h2>Productos relacionados</h2>
+              <div class="Ses_cards_relacionados sliderScroll">
+                <!-- <figure class="CardRela" id="">
+                  <div class="lblproductRela">
+                    <p>30% dto.</p>
+                  </div>
+                  <img src="img/lemon.png" alt="" />
+                  <figcaption>
+                    <div class="text_prices_rela">
+                      <h4>26.46</h4>
+                      <h4 class="priceOfer">50.46</h4>
+                    </div>
+                    <p>Limon con semilla</p>
+                    <button>Agregar</button>
+                  </figcaption>
+                </figure> -->
+              </div>
+            </article>
+            <!-- termina el slider  -->
+          </section>
+        </div>
+
+        <!-- Card Carrito  -->
+        <div class="CardCarrito">
+          <div class="Sec_topCarrito">
+            <h2>Entregar en <span id="locationCar">Ubicacion</span></h2>
+            <figure id="btncloseModalCar">
+              <img src="img/closeIcon.svg" alt="" />
+            </figure>
+          </div>
+          <article class="SecMain_car">
+            <!-- car vacio -->
+            <div class="SecCarVacio hidden">
+              <figure><img src="img/familyShoping.png" alt="" /></figure>
+              <button id="btnCarVacioAgregar">Agregar productos</button>
+            </div>
+
+            <div class="ContainerCar">
+              <div class="SecProductosCar"></div>
+              <section class="inputsPaidcar">
+                <button id="btnemptyCar">Vaciar canasta</button>
+                <div class="btnPaidCar">
+                  <h4>6</h4>
+                  <h3>Ir a pagar</h3>
+                  <p>$56.78</p>
+                </div>
+              </section>
+            </div>
+          </article>
+        </div>
+
+        <!-- Modal gracias por su compra  -->
+
+        <div class="ThanksforBuy">
+          <figure><img src="img/handsBuying.png" alt="" /></figure>
+          <h3>¡Gracias por tu compra!</h3>
+          <button id="btnContinueBuy">Seguir comprando</button>
+        </div>
+      </article>
+    </section>
+
+    <!-- Termina seccion del modal  -->
+
+    <!-- comienza sección principal -->
+    <main class="contMain animate__animated">
+      <!-- Comienza navbar  -->
+      <nav>
+        <h3 class="logotienda">Tiendita</h3>
+        <div class="nav_sec_location" id="nav_location_user">
+          <img
+            src="img/locationiconred.svg"
+            alt="flecha de ubicación"
+            class="iconLocationNavbar"
+          />
+
+          <h3 id="text_location">¿Dónde te encuentras?</h3>
+          <img
+            src="img/arrow.svg"
+            alt="flecha de ubicación"
+            class="iconArrowLocation"
+          />
+        </div>
+        <div id="btnCar">
+          <img src="img/car.svg" alt="carrito de compra" />
+          <p id="carNumberNav">4</p>
+        </div>
+      </nav>
+      <!-- Termina navbar  -->
+      <!-- comienza header  -->
+      <header>
+        <h1>¡Adquiere todos tus productos favoritos al mejor precio!</h1>
+      </header>
+      <!-- termina header  -->
+      <!-- comienza seccion de productos en oferta -->
+      <section class="Sec_ofertas">
+        <h2>Ofertas</h2>
+        <article class="SecCards sliderScroll" id="Seccion_cardsOfer"></article>
+      </section>
+
+      <!-- termina seccion de productos en oferta -->
+
+      <!-- comienza seccion de productos populares -->
+
+      <section class="Sec_ofertas Sec_populares">
+        <h2>Los más populares</h2>
+        <article
+          class="SecCards sliderScroll"
+          id="Seccion_cardPopular"
+        ></article>
+      </section>
+
+      <!-- termina seccion de productos populares  -->
+
+      <!-- comienza footer -->
+      <footer>
+        <h2>Tiendita</h2>
+        <a href="admins.html"><button>Ingresar</button></a>
+        <article>
+          <img src="img/icon-twitter.svg" alt="" /><img
+            src="img/icon-facebook.svg"
+            alt=""
+          />
+          <img src="img/icon-pinterest.svg" alt="" />
+          <img src="img/icon-instagram.svg" alt="" />
+        </article>
+      </footer>
+    </main>
+    <!-- termina sección principal  -->
+
+    <!-- Comienza sección de pagos  -->
+    <section class="SecPagoCar hidden animate__animated">
+      <div class="SecbtnBack animate__animated">
+        <figure class="iconBack">
+          <img src="img/backRow.png" alt="" />
+        </figure>
+        <p>Volver</p>
+      </div>
+      <article class="SecCarPayment">
+        <article class="SecMain_car SecCarPagos">
+          <div class="ContainerCarPad">
+            <div class="SecProductosCarPaid"></div>
+          </div>
+        </article>
+        <article class="FormPaid">
+          <form>
+            <label>Correo electrónico</label>
+            <input
+              type="text"
+              placeholder="userdemo@gmail.com"
+              maxlength="50"
+              autocomplete="email"
+              class="stylesinputform"
+              id="txtemail"
+            />
+            <label class="lblErrorForm animate__animated" id="lblerrorEmailForm"
+              >No dejes este campo vacío</label
+            >
+            <div class="form_info_card">
+              <label> Información de la tarjeta</label>
+              <label class="Cardsinputs">
+                <div class="IconCards">
+                  <img src="img/cardVisa.svg" alt="card visa" />
+                  <img src="img/cardmasterCard.svg" alt="card master card" />
+                  <img src="img/cardAmerican.svg" alt="card american" />
+                  <img src="img/cardDiscover.svg" alt="card discover" />
+                </div>
+                <input
+                  type="number"
+                  class="stylesinputform"
+                  id="txtnumberCard"
+                  placeholder="4503 3749 2893 7382"
+                />
+              </label>
+              <label
+                class="lblErrorForm animate__animated"
+                id="lblerrorCardForm"
+                >No dejes este campo vacío</label
+              >
+              <div class="inputs_year_cvc">
+                <input type="month" class="stylesinputform" id="txtYear" />
+                <label class="cvcIconCar">
+                  <img src="img/cvcCard.svg" alt="" />
+                  <input
+                    type="number"
+                    class="stylesinputform"
+                    id="txtCvc"
+                    placeholder="044"
+                  />
+                </label>
+              </div>
+              <label class="lblErrorForm animate__animated" id="lblerrorYearCvc"
+                >No dejes este campo vacío</label
+              >
+            </div>
+            <label>Nombre en la tarjeta</label>
+            <input
+              type="text"
+              placeholder="Cristopher Torres"
+              autocomplete="name"
+              class="stylesinputform"
+              id="txtNomUser"
+            />
+            <label class="lblErrorForm animate__animated" id="lblerrorNomUser"
+              >No dejes este campo vacío</label
+            >
+            <button type="submit" id="btnPagarCarro">
+              Pagar <span id="infoPayForm"></span>
+            </button>
+          </form>
+        </article>
+      </article>
+    </section>
+
+    <!-- Termina seccion de pagos  -->
+
+    <script src="js/main.js" type="text/javascript"></script>
+    <!-- Link de js para toastify  -->
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/toastify-js"
+    ></script>
+  </body>
+</html>

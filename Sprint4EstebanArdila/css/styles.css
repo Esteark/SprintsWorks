@@ -1,0 +1,1850 @@
+/* Fuentes  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* CSS rules families  */
+
+/* font-family: 'Inter', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Comienzo de asignacion de variables  */
+:root {
+  --fontfamilyiner: "Inter", sans-serif;
+  --fontfamilyPopins: "Poppins", sans-serif;
+  --verde: #0ac763;
+  --verdeclaro: #82e0ae;
+  --verdeopaco: #2e7e78;
+  --rojo: #fc462d;
+  --morado: #5e18bb;
+  --moradoclaro: #f0e3fe;
+  --negro: #332927;
+  --grismodal: linear-gradient(
+    180deg,
+    rgba(51, 41, 39, 0.4713235636051295) 37%,
+    rgba(51, 41, 39, 0.465721322708771) 56%
+  );
+  --borderinputs: #b8b4b4;
+  --blanco: #fefefe;
+}
+
+body {
+  background-color: var(--blanco);
+  font-family: var(--fontfamilyPopins);
+  width: 100%;
+  height: 100vh;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Estilos para la barra de navegación */
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--blanco);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--negro);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+/* Quitamos las felcas de arriab ya bajo en los input number  */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.hideScrollBar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Estilos para mostrar botón deshabilitado */
+
+.btnDisabled {
+  background-color: hsl(270, 3%, 87%) !important;
+  color: hsl(278, 68%, 11%) !important;
+  border: 1px solid hsl(270, 3%, 87%) !important;
+}
+.btnDisabled:hover {
+  cursor: default !important;
+  background-color: hsl(270, 3%, 87%) !important;
+  border: 1px solid hsl(270, 3%, 87%) !important;
+}
+
+/* Comienzan los estilos para los contenedores de los modales  */
+.radiusModal {
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.SecModal {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  background: var(--grismodal);
+  z-index: 10;
+}
+.CardModal {
+  width: 90%;
+  min-height: 400px;
+  background-color: var(--blanco);
+  margin: 3% auto;
+  padding: 20px;
+}
+
+/* Estilos para la carta modal de ubicacion  */
+.StylesModalLocation {
+  width: 90%;
+}
+
+.CardLocation .CloseIconLocation figure,
+.CardProduct .CloseIconLocation figure {
+  width: 30px;
+  height: 30px;
+  background-color: var(--negro);
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.CardLocation figure:hover,
+.CardProduct figure:hover {
+  cursor: pointer;
+}
+
+.CardLocation .CloseIconLocation,
+.CardProduct .CloseIconLocation {
+  display: flex;
+  justify-content: end;
+}
+
+.inputsLocation {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  margin-top: 30px;
+}
+
+.inputsLocation label img {
+  position: absolute;
+  padding: 10px;
+}
+
+.inputsLocation label input {
+  width: 100%;
+  height: 40px;
+  padding-left: 40px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border: 1px solid var(--borderinputs);
+  color: var(--borderinputs);
+}
+.inputsLocation label input:focus {
+  outline: 1px solid var(--negro);
+}
+
+.inputsLocation button {
+  height: 40px;
+  background-color: #0ac763;
+  border: none;
+  color: var(--blanco);
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.inputsLocation button:hover {
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+  color: var(--blanco);
+}
+
+#lblErrorModalLocation {
+  color: var(--rojo);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+/* Comienzan estilos para el modal del info producto */
+.StylesModalProduct {
+  min-height: 700px;
+}
+
+.CardProduct .InfoProduct {
+  width: 100%;
+  height: 50%;
+  display: flex;
+  flex-direction: column;
+  height: 322px;
+}
+.CardProduct .Sec_slider {
+  height: 50%;
+}
+
+.CardProduct .InfoProduct .SecImgInfoProduct {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+  height: 100px;
+  margin: 0 auto;
+}
+.CardProduct .InfoProduct .SecImgInfoProduct img {
+  width: 30%;
+  object-fit: cover;
+}
+
+.CardProduct .InfoProduct .Infoproduct_input {
+  display: flex;
+  flex-direction: column;
+  row-gap: 2px;
+  padding: 0;
+}
+.CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text {
+  display: flex;
+  flex-direction: column;
+  row-gap: 1px;
+  margin-top: 5px;
+}
+.CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text h2 {
+  font-weight: 700;
+  font-size: 18px;
+}
+.CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text h3 {
+  font-weight: 600;
+  font-size: 15px;
+}
+
+.CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text p {
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text h4 {
+  font-size: 13px;
+  font-weight: 400;
+}
+.Infoproduct_input .Infoproduct_input_sec1 {
+  margin-top: 1px;
+}
+.Infoproduct_input .Infoproduct_input_sec1 h4 {
+  font-size: 13px;
+  margin: 5px 0;
+}
+
+.Infoproduct_input .Infoproduct_input_sec1 select {
+  width: 100%;
+  height: 30px;
+  margin: 3px 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 0 10px;
+  font-style: var(--fontfamilyPopins);
+  outline: 1px solid var(--grismodal);
+}
+
+.Infoproduct_input .Infoproduct_input_sec1 select:hover {
+  cursor: pointer;
+}
+
+#lblerrorModalProduct {
+  font-size: 13px;
+  color: var(--rojo);
+  font-weight: 400;
+  text-align: center;
+}
+
+/* Estilos flex para los inputs de la card  */
+
+.InfoProduct .Infoproduct_input .Infoproduct_input_sec2 {
+  display: flex;
+  flex-direction: column;
+  column-gap: 20px;
+}
+
+.InfoProduct .Infoproduct_input .Infoproduct_input_sec2 .btnAgregarCardproduct {
+  background-color: var(--verde);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  color: var(--blanco);
+  letter-spacing: 2px;
+  border: none;
+  font-weight: 500;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.InfoProduct
+  .Infoproduct_input
+  .Infoproduct_input_sec2
+  .btnAgregarCardproduct:hover {
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+
+.InfoProduct .Infoproduct_input .Infoproduct_input_sec2 .inputsAdicion {
+  display: flex;
+  align-items: center;
+  column-gap: 10px;
+  padding: 0 5px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  background-color: var(--blanco);
+  -webkit-box-shadow: -1px 4px 13px -12px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -1px 4px 13px -12px rgba(0, 0, 0, 0.75);
+  box-shadow: -1px 4px 13px -12px rgba(0, 0, 0, 0.75);
+  height: 30px;
+  margin-bottom: 2px;
+}
+
+.InfoProduct .Infoproduct_input .Infoproduct_input_sec2 .inputsAdicion p {
+  text-align: center;
+  font-size: 14px;
+}
+
+.InfoProduct .Infoproduct_input .Infoproduct_input_sec2 .inputsAdicion button {
+  background-color: transparent;
+  border: none;
+  font-size: 30px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.InfoProduct
+  .Infoproduct_input
+  .Infoproduct_input_sec2
+  .inputsAdicion
+  button:hover {
+  cursor: pointer;
+  color: #0ac763;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.InfoProduct .Infoproduct_input .Infoproduct_input_sec2 button {
+  flex-grow: 1;
+  margin: 10px 0;
+  height: 30px;
+}
+
+/* comienzan estilos para el slider  */
+
+.Sec_SliderProductRel {
+  width: 100%;
+  height: 250px;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+.Sec_SliderProductRel h2 {
+  margin-top: 20px;
+  font-weight: 600;
+  font-size: 13px;
+}
+.Ses_cards_relacionados {
+  padding: 5px 0;
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+.CardRela {
+  min-width: 172px;
+  height: 221px;
+}
+.CardRela .lblproductRela {
+  background-color: var(--moradoclaro);
+  color: var(--morado);
+  font-size: 10px;
+  padding: 2px;
+  text-align: center;
+  width: 30%;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+.CardRela .img_productRela {
+  width: 100%;
+  height: 120px;
+  /* background: url("../img/lemon.png");
+    background-size: contain;
+    background-repeat: no-repeat; */
+}
+.CardRela figcaption .text_prices_rela {
+  display: flex;
+  column-gap: 3px;
+  font-size: 13px;
+}
+.CardRela figcaption .text_prices_rela .priceOfer {
+  text-decoration: line-through;
+  color: gray;
+}
+.CardRela figcaption p {
+  font-size: 11px;
+}
+.CardRela figcaption button {
+  width: 100%;
+  height: 30px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  background-color: var(--verde);
+  color: var(--blanco);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  border: none;
+  margin-top: 10px;
+}
+.CardRela figcaption button:hover {
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Comienzan estilos para el carrito */
+
+.StylesModalCar {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+  float: none;
+  border-radius: 0px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+}
+.CardCarrito .Sec_topCarrito {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+}
+
+.CardCarrito .Sec_topCarrito h2 {
+  font-weight: 400;
+  font-size: 15px;
+}
+.CardCarrito .Sec_topCarrito h2 span {
+  font-weight: 600;
+}
+
+.CardCarrito .Sec_topCarrito figure {
+  width: 30px;
+  height: 30px;
+  background-color: var(--negro);
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+.CardCarrito .Sec_topCarrito figure:hover {
+  cursor: pointer;
+}
+.CardCarrito .Sec_topCarrito figure img {
+  width: 50%;
+}
+
+.CardCarrito .SecMain_car .SecCarVacio {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  width: 100%;
+  height: 90vh;
+  row-gap: 50px;
+  padding: 0 75px;
+}
+
+.CardCarrito .SecMain_car .SecCarVacio figure {
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.CardCarrito .SecMain_car .SecCarVacio figure img {
+  object-fit: cover;
+}
+
+.CardCarrito .SecMain_car .SecCarVacio button {
+  background-color: var(--verde);
+  border: none;
+  height: 40px;
+  color: var(--blanco);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.CardCarrito .SecMain_car .SecCarVacio button:hover {
+  cursor: pointer;
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+/* Comeinzan estilos para el carrito */
+
+.SecProductosCar {
+  margin-top: 20px;
+  width: 100%;
+  height: 55vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.SecProductosCar::-webkit-scrollbar {
+  background-color: white;
+  width: 10px;
+}
+.SecProductosCar::-webkit-scrollbar-thumb {
+  background-color: var(--negro);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.SecProductosCar .CarProductToBuy {
+  width: 100%;
+  min-height: 112px;
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+}
+.SecProductosCar .CarProductToBuy div {
+  width: 80px;
+  height: 80px;
+  /* background: url();
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center; */
+}
+
+.SecProductosCar .CarProductToBuy .InfoproductCar {
+  flex-grow: 1;
+}
+.SecProductosCar .CarProductToBuy .InfoproductCar p {
+  font-size: 12px;
+}
+.SecProductosCar .CarProductToBuy .InfoproductCar h3 {
+  font-size: 13px;
+}
+
+.SecProductosCar .CarProductToBuy .InputCar {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  padding-right: 0;
+}
+.SecProductosCar .CarProductToBuy .InputCar h4 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.SecProductosCar .CarProductToBuy .InputCar button {
+  background-color: transparent;
+  border: none;
+  font-weight: 700;
+  font-size: 20px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.SecProductosCar .CarProductToBuy .InputCar button:hover {
+  color: var(--verde);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+
+.inputsPaidcar {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 100px;
+}
+
+.inputsPaidcar button {
+  padding: 10px;
+  background-color: transparent;
+  color: var(--borderinputs);
+  font-size: 16px;
+  font-weight: 400;
+  border: none;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.inputsPaidcar button:hover {
+  cursor: pointer;
+  color: var(--negro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.inputsPaidcar .btnPaidCar h3 {
+  font-size: 15px;
+  transition: 0.5;
+  -webkit-transition: 0.5;
+  -moz-transition: 0.5;
+  -ms-transition: 0.5;
+  -o-transition: 0.5;
+}
+
+.inputsPaidcar .btnPaidCar {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  column-gap: 20px;
+  background-color: var(--verde);
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  width: 100%;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.inputsPaidcar .btnPaidCar:hover {
+  cursor: pointer;
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.inputsPaidcar .btnPaidCar h4 {
+  background-color: var(--verdeopaco);
+  color: var(--blanco);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  text-align: center;
+  padding: 2px 6px;
+  transition: 0.5;
+  -webkit-transition: 0.5;
+  -moz-transition: 0.5;
+  -ms-transition: 0.5;
+  -o-transition: 0.5;
+}
+
+.inputsPaidcar .btnPaidCar h3 {
+  color: var(--blanco);
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.5;
+  -webkit-transition: 0.5;
+  -moz-transition: 0.5;
+  -ms-transition: 0.5;
+  -o-transition: 0.5;
+}
+
+.inputsPaidcar .btnPaidCar p {
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--blanco);
+  transition: 0.5;
+  -webkit-transition: 0.5;
+  -moz-transition: 0.5;
+  -ms-transition: 0.5;
+  -o-transition: 0.5;
+}
+
+.inputsPaidcar .btnPaidCar:hover h4 {
+  background-color: var(--negro);
+  transition: 0.5;
+  -webkit-transition: 0.5;
+  -moz-transition: 0.5;
+  -ms-transition: 0.5;
+  -o-transition: 0.5;
+}
+
+.inputsPaidcar .btnPaidCar:hover p,
+.inputsPaidcar .btnPaidCar:hover h3 {
+  color: var(--negro);
+  transition: 0.5;
+  -webkit-transition: 0.5;
+  -moz-transition: 0.5;
+  -ms-transition: 0.5;
+  -o-transition: 0.5;
+}
+
+/* Comienzan estilos para  Modal de gracias por su compra  */
+.StylesModalThanks {
+  width: 80%;
+  min-height: 350px;
+}
+.ContentThanks {
+  display: flex;
+  align-items: center;
+  margin: 0 auto;
+}
+
+.ThanksforBuy {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+}
+
+.ThanksforBuy figure {
+  width: 300px;
+  height: 200px;
+}
+.ThanksforBuy figure img {
+  width: 100%;
+}
+
+.ThanksforBuy h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.ThanksforBuy button {
+  background-color: var(--verde);
+  height: 40px;
+  color: var(--blanco);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  border: none;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  padding: 10px;
+}
+.ThanksforBuy button:hover {
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+
+/* comienzan estilos para la navbar  */
+
+nav {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  column-gap: 20px;
+}
+nav .logotienda {
+  flex-grow: 1;
+  font-size: 25px;
+  font-style: italic;
+  color: var(--rojo);
+}
+
+nav #btnCar img {
+  width: 20px;
+}
+
+nav #btnCar p {
+  color: var(--blanco);
+  font-weight: 400;
+  font-size: 15px;
+}
+
+nav #btnCar {
+  width: 90px;
+  height: 40px;
+  background-color: var(--verde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  column-gap: 8px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+nav #btnCar:hover {
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Estilos para colocar la sección del mennu de localización al centro en version mobile  */
+nav .nav_sec_location {
+  position: absolute;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+  border: none;
+}
+
+nav .nav_sec_location h3 {
+  font-size: 15px;
+}
+
+nav .nav_sec_location:hover {
+  cursor: pointer;
+}
+
+nav .nav_sec_location .iconLocationNavbar {
+  display: none;
+}
+
+/* comienzan estilos para el header */
+
+header {
+  width: 90%;
+  height: 130px;
+  background: url(../img/banner.jpg);
+  background-size: cover;
+  margin: 90px auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  color: var(--blanco);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 16px;
+}
+
+/* Comienzan los estilos para la seccion de ofertas  */
+.Sec_ofertas {
+  width: 100%;
+  height: 500px;
+  border-radius: 20px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  -ms-border-radius: 20px;
+  -o-border-radius: 20px;
+  padding: 20px;
+  margin: 40px auto;
+  -webkit-box-shadow: 1px 10px 36px -23px rgba(51, 41, 39, 1);
+  -moz-box-shadow: 1px 10px 36px -23px rgba(51, 41, 39, 1);
+  box-shadow: 1px 10px 36px -23px rgba(51, 41, 39, 1);
+}
+
+.Sec_ofertas h2 {
+  font-weight: 600;
+  font-size: 20px;
+}
+.SecCards {
+  margin-top: 20px;
+  display: flex;
+  column-gap: 30px;
+}
+
+/* Comienzan estilos de las cards en ofertas  */
+
+.Card_Ofer {
+  min-width: 200px;
+  min-height: 360px;
+  margin-top: 10px;
+}
+
+.Card_Ofer .img_cardOfer {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+
+  /* background: url(../img/lemon.png); */
+}
+.Card_Ofer .oferLabel {
+  background-color: var(--moradoclaro);
+  text-align: center;
+  width: 70px;
+  padding: 5px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+.Card_Ofer .oferLabel p {
+  color: var(--morado);
+  font-size: 10px;
+  font-weight: 700;
+  width: 100%;
+}
+.Card_Ofer figcaption {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  margin-top: 15px;
+}
+
+.Card_Ofer figcaption .nomproduct {
+  font-size: 13px;
+}
+.Card_Ofer .prices_ofer {
+  display: flex;
+  column-gap: 5px;
+}
+.Card_Ofer .prices_ofer h4 {
+  font-weight: 700;
+}
+
+.Card_Ofer .prices_ofer :last-child {
+  text-decoration: line-through;
+  color: gray;
+}
+
+.Card_Ofer .prices_ofer .precio_popular {
+  text-decoration: none;
+  color: var(--negro);
+}
+
+.Card_Ofer figcaption button {
+  margin-top: 20px;
+  background-color: var(--verde);
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  color: var(--blanco);
+  font-weight: 300;
+  font-size: 13px;
+  letter-spacing: 1px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.Card_Ofer figcaption button:hover {
+  background-color: var(--verdeclaro);
+  cursor: pointer;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+/* Estilos para el carrusel  */
+
+.sliderScroll {
+  overflow-x: scroll;
+}
+
+.sliderScroll::-webkit-scrollbar {
+  height: 5px;
+  background-color: var(--blanco);
+}
+.sliderScroll::-webkit-scrollbar-thumb {
+  background-color: var(--negro);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+/* Comienzan estilos para el footer  */
+footer {
+  width: 100%;
+  height: 200px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer h2 {
+  color: var(--blanco);
+  font-style: italic;
+}
+
+footer article {
+  display: flex;
+  column-gap: 20px;
+}
+
+footer button {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  color: var(--blanco);
+  font-size: 18px;
+  font-weight: 700;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+footer button:hover {
+  background-color: var(--negro);
+  cursor: pointer;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+/* Comienzan estilos para la seccion de pagos  */
+/* Estilos para el carrito de pago  */
+
+.SecCarPayment {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.SecPagoCar {
+  width: 100%;
+  height: 100vh;
+}
+
+.SecbtnBack {
+  display: flex;
+  column-gap: 10px;
+  align-items: center;
+  padding: 15px;
+}
+.SecbtnBack figure {
+  width: 40px;
+  height: 40px;
+  background-color: var(--negro);
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
+
+.SecbtnBack figure:hover {
+  cursor: pointer;
+}
+.SecbtnBack figure img {
+  width: 100%;
+}
+
+.ContainerCarPad {
+  background-color: var(--blanco);
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  -webkit-box-shadow: -6px 7px 58px -45px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: -6px 7px 58px -45px rgba(0, 0, 0, 0.75);
+  box-shadow: -6px 7px 58px -45px rgba(0, 0, 0, 0.75);
+  padding: 10px 20px;
+  margin: 0 auto;
+}
+
+.SecProductosCarPaid {
+  margin-top: 20px;
+  width: 100%;
+  height: 30vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+.SecProductosCarPaid::-webkit-scrollbar {
+  background-color: white;
+  width: 10px;
+}
+.SecProductosCarPaid::-webkit-scrollbar-thumb {
+  background-color: var(--negro);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.SecProductosCarPaid .CarProductToBuy {
+  width: 100%;
+  min-height: 112px;
+  display: flex;
+  column-gap: 5px;
+  align-items: center;
+}
+
+.SecProductosCarPaid .CarProductToBuy div {
+  width: 80px;
+  height: 80px;
+}
+
+.SecProductosCarPaid .CarProductToBuy .InfoproductCar {
+  flex-grow: 1;
+}
+
+.SecProductosCarPaid .CarProductToBuy .InfoproductCar p {
+  font-size: 12px;
+}
+.SecProductosCarPaid .CarProductToBuy .InfoproductCar h3 {
+  font-size: 13px;
+}
+
+.SecProductosCarPaid .CarProductToBuy .InputCar {
+  display: flex;
+  align-items: center;
+  column-gap: 6px;
+  padding-right: 0;
+}
+.SecProductosCarPaid .CarProductToBuy .InputCar h4 {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.SecProductosCarPaid .CarProductToBuy .InputCar button {
+  background-color: transparent;
+  border: none;
+  font-weight: 700;
+  font-size: 20px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.SecProductosCarPaid .CarProductToBuy .InputCar button:hover {
+  color: var(--verde);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+.FormPaid {
+  height: 50vh;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.FormPaid form {
+  display: flex;
+  flex-direction: column;
+}
+
+.FormPaid form label {
+  font-size: 14px;
+}
+
+.FormPaid form .stylesinputform {
+  height: 30px;
+  background-color: transparent;
+  border: 1px solid var(--borderinputs);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding-left: 5px;
+  font-family: var(--fontfamilyPopins);
+  -webkit-box-shadow: 1px -5px 38px -23px rgba(238, 238, 236, 1);
+  -moz-box-shadow: 1px -5px 38px -23px rgba(238, 238, 236, 1);
+  box-shadow: 1px -5px 38px -23px rgba(238, 238, 236, 1);
+}
+.FormPaid form .stylesinputform:focus {
+  outline: 1px solid var(--borderinputs);
+}
+
+.FormPaid form button {
+  background-color: var(--verde);
+  height: 40px;
+  color: var(--blanco);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  border: none;
+  font-weight: 600;
+  font-size: 15px;
+  margin-top: 10px;
+}
+
+.FormPaid form button:hover {
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+
+.FormPaid form .form_info_card {
+  display: flex;
+  flex-direction: column;
+}
+.FormPaid form .form_info_card label {
+  margin-bottom: 5px;
+}
+
+.FormPaid form .inputs_year_cvc {
+  display: flex;
+}
+.FormPaid form .lblErrorForm {
+  font-size: 12px;
+  color: var(--rojo);
+}
+
+/* Estilos para los iconos de tarjetas de credito  */
+.cvcIconCar img {
+  position: absolute;
+  padding: 6px 0;
+  padding-left: 140px;
+}
+.IconCards {
+  position: absolute;
+  padding: 6px;
+  padding-left: 200px;
+  display: flex;
+  column-gap: 5px;
+}
+.Cardsinputs input {
+  width: 100%;
+}
+
+/* Comienzan media querys  */
+@media (min-width: 992px) {
+  /* Comienzan estilos para el modal  */
+  .SecModal {
+    margin-top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .CardModal {
+    width: 80%;
+    margin-top: 1%;
+  }
+
+  .CardLocation {
+    padding: 20px;
+  }
+
+  .StylesModalLocation {
+    width: 50%;
+  }
+
+  .inputsLocation {
+    row-gap: 30px;
+  }
+  /* Comienzan estilos para el modal del info producto */
+
+  .CardProduct .InfoProduct {
+    display: flex;
+    flex-direction: row;
+    height: 280px;
+  }
+
+  .CardProduct .Sec_info_product .InfoProduct .SecImgInfoProduct {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    height: 300px;
+  }
+  .CardProduct .Sec_info_product .InfoProduct .SecImgInfoProduct img {
+    width: 30%;
+    object-fit: cover;
+  }
+
+  .CardProduct .InfoProduct .Infoproduct_input {
+    display: flex;
+    flex-direction: column;
+    row-gap: 3px;
+    padding: 0 30px;
+  }
+  .CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+  }
+  .CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text h2 {
+    font-weight: 700;
+  }
+  .CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text h3 {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text p {
+    font-size: 13px;
+    font-weight: 400;
+  }
+
+  .CardProduct .InfoProduct .Infoproduct_input .Infoproduct_input_text h4 {
+    font-size: 15px;
+    font-weight: 400;
+  }
+  .Infoproduct_input .Infoproduct_input_sec1 {
+    margin-top: 5px;
+  }
+
+  .Infoproduct_input .Infoproduct_input_sec1 select {
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: 0 10px;
+    font-style: var(--fontfamilyPopins);
+    outline: 1px solid var(--grismodal);
+  }
+
+  .Infoproduct_input .Infoproduct_input_sec1 select:hover {
+    cursor: pointer;
+  }
+
+  /* Estilos flex para los inputs de la card  */
+
+  .InfoProduct .Infoproduct_input .Infoproduct_input_sec2 {
+    flex-direction: row;
+    column-gap: 20px;
+    height: 40px;
+    align-items: center;
+  }
+
+  .InfoProduct
+    .Infoproduct_input
+    .Infoproduct_input_sec2
+    .btnAgregarCardproduct {
+    background-color: var(--verde);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    color: var(--blanco);
+    letter-spacing: 2px;
+    border: none;
+    font-weight: 500;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+  }
+  .InfoProduct
+    .Infoproduct_input
+    .Infoproduct_input_sec2
+    .btnAgregarCardproduct:hover {
+    background-color: var(--verdeclaro);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    cursor: pointer;
+  }
+
+  .InfoProduct .Infoproduct_input .Infoproduct_input_sec2 .inputsAdicion {
+    display: flex;
+    column-gap: 20px;
+    padding: 0 10px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background-color: var(--blanco);
+    -webkit-box-shadow: -1px 4px 13px -12px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -1px 4px 13px -12px rgba(0, 0, 0, 0.75);
+    box-shadow: -1px 4px 13px -12px rgba(0, 0, 0, 0.75);
+    height: 40px;
+    width: 120px;
+  }
+
+  .InfoProduct .Infoproduct_input .Infoproduct_input_sec2 .inputsAdicion p {
+    text-align: center;
+    font-size: 14px;
+  }
+
+  .InfoProduct
+    .Infoproduct_input
+    .Infoproduct_input_sec2
+    .inputsAdicion
+    button {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+  }
+
+  .InfoProduct
+    .Infoproduct_input
+    .Infoproduct_input_sec2
+    .inputsAdicion
+    button:hover {
+    cursor: pointer;
+    color: #0ac763;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+  }
+
+  .InfoProduct .Infoproduct_input .Infoproduct_input_sec2 button {
+    flex-grow: 1;
+  }
+
+  #lblerrorModalProduct {
+    text-align: right;
+  }
+  /* comienzan estilos para el slider  */
+
+  .Sec_SliderProductRel {
+    width: 100%;
+    height: 300px;
+    padding: 10px 30px;
+    margin-top: 10px;
+  }
+  .Sec_SliderProductRel h2 {
+    margin: 15px 0;
+    font-weight: 600;
+    font-size: 18px;
+  }
+  .Ses_cards_relacionados {
+    padding: 5px 0;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+  }
+  .CardRela {
+    min-width: 172px;
+    height: 221px;
+  }
+  .CardRela .lblproductRela {
+    background-color: var(--moradoclaro);
+    color: var(--morado);
+    font-size: 10px;
+    padding: 2px;
+    text-align: center;
+    width: 30%;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+  }
+  .CardRela .img_productRela {
+    width: 100%;
+    height: 120px;
+    /* background: url("../img/lemon.png");
+    background-size: contain;
+    background-repeat: no-repeat; */
+  }
+  .CardRela figcaption .text_prices_rela {
+    display: flex;
+    column-gap: 3px;
+    font-size: 13px;
+  }
+  .CardRela figcaption .text_prices_rela .priceOfer {
+    text-decoration: line-through;
+    color: gray;
+  }
+  .CardRela figcaption p {
+    font-size: 11px;
+  }
+  .CardRela figcaption button {
+    width: 100%;
+    height: 30px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    background-color: var(--verde);
+    color: var(--blanco);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    border: none;
+    margin-top: 10px;
+  }
+  .CardRela figcaption button:hover {
+    background-color: var(--verdeclaro);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    cursor: pointer;
+  }
+  /* Comienzan estilos de la card carrito */
+  .StylesModalCar {
+    width: 45%;
+    height: 100vh;
+    float: right;
+    margin: 0;
+  }
+
+  .CardCarrito .SecMain_car .SecCarVacio {
+    padding: 0 120px;
+  }
+  .SecProductosCar {
+    height: 65vh;
+  }
+  .ContainerCar .inputsPaidcar {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  .ContainerCar .inputsPaidcar .btnPaidCar {
+    width: 50%;
+  }
+  .SecProductosCar .CarProductToBuy .InfoproductCar p {
+    font-size: 15px;
+  }
+  .SecProductosCar .CarProductToBuy .InfoproductCar h3 {
+    font-size: 16px;
+  }
+  .SecProductosCar .CarProductToBuy .InputCar {
+    padding-right: 10px;
+  }
+
+  /* Estilos para el carrito de pago */
+
+  .SecProductosCarPaid {
+    height: 100vh;
+  }
+
+  .SecProductosCarPaid .CarProductToBuy .InfoproductCar p {
+    font-size: 15px;
+  }
+  .SecProductosCarPaid .CarProductToBuy .InfoproductCar h3 {
+    font-size: 16px;
+  }
+  .SecProductosCarPaid .CarProductToBuy .InputCar {
+    padding-right: 10px;
+  }
+
+  /* Comienzan los estilos de la navbar  */
+  nav {
+    width: 90%;
+    margin: 0 auto;
+    padding: 30px 0;
+    column-gap: 20px;
+  }
+  nav .logotienda {
+    flex-grow: 6;
+  }
+  .Sec_ofertas {
+    width: 90%;
+
+    margin: 0 auto;
+  }
+
+  /* Estilos para colocar la sección del menu de localización al centro en version mobile  */
+  nav .nav_sec_location {
+    padding-right: 20px;
+    margin-top: 0;
+    position: relative;
+    align-items: center;
+    justify-content: end;
+    border-right: 1px solid var(--borderinputs);
+    flex-grow: 1;
+    height: inherit;
+  }
+
+  nav .nav_sec_location .iconLocationNavbar {
+    display: block;
+    color: var(--rojo);
+    width: 20px;
+  }
+  nav .nav_sec_location .iconArrowLocation {
+    display: none;
+  }
+
+  header {
+    height: 250px;
+  }
+  header h1 {
+    font-size: 28px;
+  }
+
+  .Sec_populares {
+    margin: 50px auto;
+  }
+
+  /* Comienzan estilos para el footer  */
+  footer {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
+
+  /* Comienzan estilos para la seccion de pagos  */
+  /* Estilos para el carrito de pago  */
+  .SecbtnBack {
+    padding: 20px 0;
+    padding-left: 80px;
+  }
+
+  .SecCarPayment {
+    flex-direction: row;
+    gap: 40px;
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .SecCarPayment .SecCarPagos {
+    flex-grow: 1;
+  }
+  .SecCarPayment .SecCarPagos .ContainerCarPad .SecProductosCarPaid {
+    height: 70vh;
+  }
+
+  .SecCarPayment .FormPaid {
+    flex-grow: 1;
+    align-items: center;
+    justify-content: center;
+  }
+  .SecCarPayment .FormPaid form {
+    width: 420px;
+    gap: 3px;
+  }
+  .FormPaid form .inputs_year_cvc {
+    display: flex;
+  }
+  .FormPaid form .inputs_year_cvc input {
+    width: 100%;
+  }
+  /* Estilos para los iconos de tarjetas de credito  */
+  .cvcIconCar img {
+    padding-left: 90px;
+  }
+  .IconCards {
+    padding-left: 300px;
+  }
+
+  /* Comienzan estilos para  Modal de gracias por su compra  */
+  .StylesModalThanks {
+    width: 30%;
+    min-height: 350px;
+  }
+
+  .ContentThanks {
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  .ThanksforBuy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 10px;
+  }
+
+  .ThanksforBuy figure {
+    width: 300px;
+    height: 200px;
+  }
+  .ThanksforBuy figure img {
+    width: 100%;
+  }
+
+  .ThanksforBuy h3 {
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .ThanksforBuy button {
+    background-color: var(--verde);
+    height: 40px;
+    color: var(--blanco);
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    border: none;
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    padding: 10px;
+  }
+  .ThanksforBuy button:hover {
+    background-color: var(--verdeclaro);
+    transition: 0.5s;
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -o-transition: 0.5s;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,309 @@
+/* Fuentes  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap");
+
+/* CSS rules families  */
+
+/* font-family: 'Inter', sans-serif;
+font-family: 'Poppins', sans-serif; */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+/* Comienzo de asignacion de variables  */
+:root {
+  --fontfamilyiner: "Inter", sans-serif;
+  --fontfamilyPopins: "Poppins", sans-serif;
+  --verde: #0ac763;
+  --verdeclaro: #82e0ae;
+  --verdeopaco: #2e7e78;
+  --rojo: #fc462d;
+  --morado: #5e18bb;
+  --moradoclaro: #f0e3fe;
+  --negro: #332927;
+  --grismodal: linear-gradient(
+    180deg,
+    rgba(51, 41, 39, 0.4713235636051295) 37%,
+    rgba(51, 41, 39, 0.465721322708771) 56%
+  );
+  --borderinputs: #b8b4b4;
+  --blanco: #fefefe;
+}
+
+body {
+  background-color: var(--blanco);
+  font-family: var(--fontfamilyPopins);
+  width: 100%;
+  height: 100vh;
+}
+.hidden {
+  display: none !important;
+}
+
+/* Estilos para la barra de navegación */
+body::-webkit-scrollbar {
+  width: 10px;
+  background-color: var(--blanco);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: var(--negro);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+/* comienzan estilos para la navbar  */
+
+nav {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  column-gap: 20px;
+}
+nav a .logotienda {
+  flex-grow: 1;
+  font-size: 25px;
+  font-style: italic;
+  color: var(--rojo);
+}
+
+nav a .logotienda:hover {
+  cursor: pointer;
+}
+
+nav #btnCar img {
+  width: 20px;
+}
+
+nav #btnCar p {
+  color: var(--blanco);
+  font-weight: 400;
+  font-size: 15px;
+}
+
+nav #btnCar {
+  width: 90px;
+  height: 40px;
+  background-color: var(--verde);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  column-gap: 8px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+nav #btnCar:hover {
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+
+/* Estilos para colocar la sección del mennu de localización al centro en version mobile  */
+nav .nav_sec_location {
+  position: absolute;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
+  column-gap: 10px;
+  border: none;
+}
+
+nav .nav_sec_location h3 {
+  font-size: 15px;
+}
+
+nav .nav_sec_location:hover {
+  cursor: pointer;
+}
+
+nav .nav_sec_location .iconLocationNavbar {
+  display: none;
+}
+
+/* Comienzan estilos para lasección del form  */
+main {
+  width: 100%;
+  height: 100vh;
+}
+
+#formLogin {
+  width: 90%;
+  height: inherit;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 10px;
+}
+#formLogin input {
+  height: 40px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border: 1px solid var(--borderinputs);
+  padding: 10px;
+  font-size: 15px;
+}
+
+#formLogin input:focus {
+  outline: 1px solid var(--borderinputs);
+}
+
+#formLogin button {
+  background-color: var(--verde);
+  height: 40px;
+  color: var(--blanco);
+  font-size: 15px;
+  letter-spacing: 2px;
+  font-weight: 400;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  border: none;
+  margin-top: 10px;
+}
+#formLogin button:hover {
+  background-color: var(--verdeclaro);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+  cursor: pointer;
+}
+
+#lblErrorFormLogin {
+  color: var(--rojo);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* Comienzan estilos para la sección de admin  */
+
+.btnNewProduct {
+  display: flex;
+  justify-content: end;
+}
+.btnNewProduct button {
+  background-color: var(--verde);
+  padding: 10px;
+  height: 30px;
+  color: var(--blanco);
+  border: none;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+.btnNewProduct button:hover {
+  cursor: pointer;
+  background-color: var(--verdeopaco);
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+.flexSecAdmin {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Comienzan estilos para el footer  */
+footer {
+  width: 100%;
+  height: 200px;
+  background-color: #000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+footer h2 {
+  color: var(--blanco);
+  font-style: italic;
+}
+
+footer article {
+  display: flex;
+  column-gap: 20px;
+}
+
+footer button {
+  background-color: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  color: var(--blanco);
+  font-size: 18px;
+  font-weight: 700;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+footer button:hover {
+  background-color: var(--negro);
+  cursor: pointer;
+  transition: 0.5s;
+  -webkit-transition: 0.5s;
+  -moz-transition: 0.5s;
+  -ms-transition: 0.5s;
+  -o-transition: 0.5s;
+}
+
+/* inician media querys  */
+@media (min-width: 992px) {
+  #formLogin {
+    width: 30%;
+  }
+  footer {
+    flex-direction: row;
+  }
+}
